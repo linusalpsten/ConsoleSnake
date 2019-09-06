@@ -8,5 +8,16 @@ namespace ConsoleSnake
 {
     public static class Extensions
     {
+        public static void Draw(this IEnumerable<IEnumerable<IDrawable>> drawables)
+        {
+            foreach (var row in drawables)
+            {
+                foreach (var column in row)
+                {
+                    Console.Write(column.Draw());
+                }
+            }
+            Console.WriteLine();
+        }
     }
 }
