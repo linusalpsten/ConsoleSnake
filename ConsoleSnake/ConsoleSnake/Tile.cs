@@ -10,6 +10,10 @@ namespace ConsoleSnake
     {
         char tile = ' ';
 
+        public Tile(char tile)
+        {
+            this.tile = tile;
+        }
         public char GetDrawing()
         {
             return tile;
