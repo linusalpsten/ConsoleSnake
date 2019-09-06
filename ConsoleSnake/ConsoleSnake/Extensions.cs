@@ -16,8 +16,8 @@ namespace ConsoleSnake
                 {
                     Console.Write(column.GetDrawing());
                 }
+                Console.WriteLine();
             }
-            Console.WriteLine();
         }
     }
 }
