@@ -8,6 +8,6 @@ namespace ConsoleSnake
 {
     public interface IDrawable
     {
-        char Draw();
+        char GetDrawing();
     }
 }

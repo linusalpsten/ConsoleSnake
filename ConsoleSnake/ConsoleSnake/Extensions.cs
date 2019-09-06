@@ -14,7 +14,7 @@ namespace ConsoleSnake
             {
                 foreach (var column in row)
                 {
-                    Console.Write(column.Draw());
+                    Console.Write(column.GetDrawing());
                 }
             }
             Console.WriteLine();
