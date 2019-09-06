@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleSnake
 {
-    class Tile
+    public class Tile : IDrawable
     {
         char tile = ' ';
+
+        public char GetDrawing()
+        {
+            return tile;
+        }
     }
 }
