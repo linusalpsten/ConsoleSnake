@@ -10,6 +10,13 @@ namespace ConsoleSnake
     {
         static void Main(string[] args)
         {
+            List<List<IDrawable>> map = new List<List<IDrawable>>();
+            map.Add(new List<IDrawable> { new Tile('#'), new Tile('#'), new Tile('#'), new Tile('#'), new Tile('#') });
+            map.Add(new List<IDrawable> { new Tile('#'), new Tile('*'), new Tile('*'), new Tile('*'), new Tile('#') });
+            map.Add(new List<IDrawable> { new Tile('#'), new Tile('*'), new Tile('*'), new Tile('*'), new Tile('#') });
+            map.Add(new List<IDrawable> { new Tile('#'), new Tile('*'), new Tile('*'), new Tile('*'), new Tile('#') });
+            map.Add(new List<IDrawable> { new Tile('#'), new Tile('#'), new Tile('#'), new Tile('#'), new Tile('#') });
+            map.Draw();
         }
     }
 }
