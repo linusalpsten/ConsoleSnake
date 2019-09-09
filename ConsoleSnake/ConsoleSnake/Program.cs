@@ -11,34 +11,32 @@ namespace ConsoleSnake
     {
         static void Main(string[] args)
         {
-            //List<List<IDrawable>> map = new List<List<IDrawable>>();
-            //map.Add(new List<IDrawable> { new Tile('#'), new Tile('#'), new Tile('#'), new Tile('#'), new Tile('#') });
-            //map.Add(new List<IDrawable> { new Tile('#'), new Tile('*'), new Tile('*'), new Tile('*'), new Tile('#') });
-            //map.Add(new List<IDrawable> { new Tile('#'), new Tile('*'), new Tile('*'), new Tile('*'), new Tile('#') });
-            //map.Add(new List<IDrawable> { new Tile('#'), new Tile('*'), new Tile('*'), new Tile('*'), new Tile('#') });
-            //map.Add(new List<IDrawable> { new Tile('#'), new Tile('#'), new Tile('#'), new Tile('#'), new Tile('#') });
-            //map.Draw();
-            Map map = new Map(10, 10);
+            Map map = new Map(10, 20);
             ConsoleKey keyPressed = ConsoleKey.Spacebar;
             bool quit = false;
             ManualResetEvent mre = new ManualResetEvent(false);
+            int count = 0;
 
             Task drawer = Task.Factory.StartNew(() =>
             {
                 while (!quit)
                 {
+                    count++;
                     map.Draw();
                     Console.WriteLine(keyPressed);
-                    Thread.Sleep(500);
+                    Console.WriteLine(count);
+                    mre.WaitOne(500);
+                    mre.Reset();
                     Console.Clear();
                 }
             });
 
             Task keyListener = Task.Factory.StartNew(() =>
             {
-                while (true)
+                while (!quit)
                 {
                     keyPressed = Console.ReadKey().Key;
+                    mre.Set();
                     if (keyPressed == ConsoleKey.Q)
                     {
                         quit = true;
