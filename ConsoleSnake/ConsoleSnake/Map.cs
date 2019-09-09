@@ -9,7 +9,7 @@ namespace ConsoleSnake
     class Map
     {
         List<List<IDrawable>> map = new List<List<IDrawable>>();
-        public Map(int width, int height)
+        public Map(int height, int width)
         {
             if (width < 2 || height <2)
             {
